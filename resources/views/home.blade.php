@@ -14,7 +14,7 @@
       <img src=" {{ asset('/storage'.'/'.$product->ProductImage) }}" class="card-img-top" alt="{{ $product->ProductImage }}">
       <div class="card-body">
         <h5 class="card-title">{{ $product->id. ". " .$product->ProductName}}</h5>
-        <p class="card-text">Product Price: {{ $product->ProductPrice }}</p>
+        <p class="card-text">Job Title: {{ $product->ProductPrice }}</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
