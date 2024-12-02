@@ -10,24 +10,24 @@
   <body> <div style="padding-left: 20px;"> 
     <x-nav-bar  />
 
-    <form action="{{ route('createProduct') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('editProduct',$product->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
       <label for="ProductName">Company Name</label><br>
-      <input id="ProductName" type="text" name="ProductName" value="{{ old("ProductName") }}"><br>
+      <input id="ProductName" type="text" name="ProductName" value="{{ $product->ProductName }}"><br>
 
       @error('ProductName')
         <p style="color: red;">{{ $message }} </p>
       @enderror
 
       <label for="ProductPrice">Job Title</label><br>
-      <input id="ProductPrice" type="text" name="ProductPrice" value="{{ old("ProductPrice") }}"><br>
+      <input id="ProductPrice" type="text" name="ProductPrice" value="{{ $product->ProductPrice }}"><br>
 
       @error('ProductPrice')
       <p style="color: red;">{{ $message }} </p>
     @enderror
 
     <label for="ProductImage">Company Image</label><br>
-      <input id="ProductImage" type="file" name="ProductImage" value="{{ old("ProductImage") }}"><br>
+      <input id="ProductImage" type="file" name="ProductImage" value="{{ $product->ProductImage }}"><br>
 
       @error('ProductImage')
       <p style="color: red;">{{ $message }} </p>
@@ -36,8 +36,11 @@
     <label for="">Category</label>
     <br>
     <select name="CategoryId">
+        <option value="{{ $product->CategoryId }}">{{ $product->category->CategoryName }}</option>
       @foreach ($categories as $category)
+      @if ($category->id !== $product->categoryId)
       <option value="{{ $category->id }}">{{ $category->CategoryName }}</option>
+      @endif
       @endforeach
     </select>
     <br>
