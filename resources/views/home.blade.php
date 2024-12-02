@@ -20,6 +20,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ $product->id. ". " .$product->ProductName}}</h5>
         <p class="card-text">Job Title: {{ $product->ProductPrice }}</p>
+
         <div class="d-flex justify-content-between">
           <a href="#" class="btn btn-primary me-3" style="width: 150px; height: 60px;">More Information</a>
           <a href="{{ route('getEditProductPage', $product->id) }}" class="btn btn-primary" style="width: 150px; height: 60px;">Edit Listing</a>
